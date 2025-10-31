@@ -1,0 +1,204 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Color Variables */
+:root {
+  --primary: #06b6d4; /* teal */
+  --accent: #f59e0b;  /* warm orange */
+  --bg: #f3f4f6;
+  --header-bg: #0f172a; /* dark navy/charcoal */
+  --text: #0b1220;
+}
+
+/* Base styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg), #e6eef4);
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding-left: 20px; /* add horizontal padding to fix edge margins */
+  padding-right: 20px;
+}
+
+/* Header & Navigation */
+header {
+  background-color: var(--header-bg);
+  color: #fff;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.2);
+}
+
+header .container {
+  display: flex;
+  align-items: flex-start; /* keep items aligned to the top */
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 6px; /* small top padding so logo sits slightly below the top edge */
+  padding-bottom: 6px;
+}
+
+header .logo {
+  /* remove float-based layout and align logo to top-left */
+  float: none;
+  font-size: 1.35em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  align-self: flex-start; /* keeps logo at the top-left of header */
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.logo-text {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05em;
+  letter-spacing: 0.6px;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  background: rgba(255,255,255,0.06);
+  text-decoration: none;
+}
+
+/* keep nav aligned to top-right */
+nav {
+  align-self: flex-start;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(15,23,42,0.6), rgba(15,23,42,0.4)), url("../images/hero.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h2 {
+  font-size: 2.2em;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  font-size: 1.05em;
+  margin-bottom: 18px;
+}
+
+.btn {
+  background-color: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background-color: #f97316;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: var(--header-bg);
+  color: white;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Reduce default spacing for main sections so margins feel consistent */
+main.container, .hero .container {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  nav ul {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    padding: 60px 16px;
+  }
+
+  .logo-img {
+    height: 34px;
+  }
+}
+
+/* Ensure logo text doesn't overflow on small screens */
+@media (max-width: 420px) {
+  .logo-text {
+    font-size: 0.95em;
+  }
+  .logo-img {
+    height: 32px;
+  }
+}
